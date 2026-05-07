@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Cut Above – Barber Shop & Salon | Tooele, Utah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #a00d24;
+    --red-light: #f5e6e9;
+    --tan: #b5956a;
+    --tan-light: #f5efe6;
+    --charcoal: #3a3a3a;
+    --gray: #666;
+    --light-gray: #f7f7f5;
+    --white: #ffffff;
+    --border: #e0dbd4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--charcoal);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--red);
+    font-style: italic;
+    line-height: 1.1;
+  }
+
+  .nav-logo-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--red);
+    color: var(--white);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.75;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-scissors {
+    font-size: 1.6rem;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--red);
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    border: 2px solid var(--white);
+  }
+
+  .btn-white:hover { background: var(--red-light); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 2px solid rgba(255,255,255,0.6);
+    transition: border-color 0.2s;
+  }
+
+  .btn-outline-white:hover { border-color: var(--white); }
+
+  /* STRIP */
+  .info-strip {
+    background: var(--charcoal);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.5rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .info-item:last-child { border-right: none; }
+
+  .info-icon {
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+
+  .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--gray);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--red);
+    color: var(--white);
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    border: 4px solid var(--white);
+  }
+
+  .about-badge strong {
+    display: block;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .about-text h2 { margin-bottom: 1rem; }
+
+  .about-text p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-pill {
+    background: var(--red-light);
+    color: var(--red-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+  }
+
+  /* TEAM */
+  .team-section { background: var(--light-gray); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card {
+    background: var(--white);
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .team-card-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    background: var(--tan-light);
+  }
+
+  .team-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--tan-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .team-photo-placeholder svg {
+    width: 56px;
+    height: 56px;
+    opacity: 0.25;
+  }
+
+  .team-photo-placeholder span {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    opacity: 0.5;
+  }
+
+  .team-card-body { padding: 1.25rem; }
+
+  .team-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+    color: var(--charcoal);
+  }
+
+  .team-card-role {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .team-card-bio {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin-top: 0.75rem;
+    line-height: 1.65;
+  }
+
+  /* BOOK */
+  .book-section {
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .book-section .section-label { color: rgba(255,255,255,0.65); }
+
+  .book-section .section-title { color: var(--white); margin-bottom: 1rem; }
+
+  .book-section .section-intro { color: rgba(255,255,255,0.8); margin: 0 auto 2.5rem; }
+
+  .book-methods {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .book-method {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .book-method-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+    display: block;
+  }
+
+  .book-method-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.65;
+    margin-bottom: 0.4rem;
+  }
+
+  .book-method-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .book-method-value a {
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .walk-in-note {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: var(--light-gray);
+    border-radius: 2px;
+    padding: 1.75rem;
+    border-left: 4px solid var(--red);
+  }
+
+  .stars {
+    color: var(--tan);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    line-height: 1.75;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* CONTACT */
+  .contact-section { background: var(--light-gray); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--charcoal);
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--red);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    color: var(--white);
+  }
+
+  .contact-detail-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-detail-value {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  .contact-detail-value a {
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .contact-detail-value a:hover { color: var(--red); }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .hours-table td {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--charcoal);
+  }
+
+  .hours-table td:last-child {
+    text-align: right;
+    color: var(--gray);
+  }
+
+  .hours-table tr:last-child td { border-bottom: none; }
+
+  .closed-label {
+    color: var(--red) !important;
+    font-weight: 700;
+  }
+
+  .map-placeholder {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    padding: 2.5rem 2rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-link {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 0 0.25rem 1rem;
+    transition: background 0.2s;
+  }
+
+  .social-link:hover { background: var(--red); color: var(--white); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .about-badge { width: 90px; height: 90px; bottom: -12px; right: -8px; }
+    .info-item { padding: 0.75rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div>
+      <div class="nav-logo-text">A Cut Above</div>
+      <div class="nav-logo-sub">Barber Shop &amp; Salon</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Hours &amp; Location</a></li>
+    <li><a href="tel:4358820852" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <p class="hero-eyebrow">Tooele, Utah's Favorite Salon</p>
+  <h1>A Cut Above</h1>
+  <p class="hero-subtitle">&#9135; Barber Shop &amp; Salon &#9135;</p>
+  <span class="hero-scissors">✂</span>
+  <p class="hero-tagline">Where neighbors become regulars and regulars become family. Walk-ins always welcome.</p>
+  <div class="hero-actions">
+    <a href="tel:4358820852" class="btn-white">Call to Book &rarr;</a>
+    <a href="#about" class="btn-outline-white">Learn More</a>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-item">
+    <span class="info-icon">📍</span>
+    <span>Tooele, Utah</span>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">📞</span>
+    <span><a href="tel:4358820852" style="color:white;text-decoration:none;">435-882-0852</a></span>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">✂</span>
+    <span>Walk-Ins Welcome</span>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">⭐</span>
+    <span>Color · Cuts · Nails · Barbering</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="Screenshot_2026-03-31_at_8_36_27_PM.png" alt="A Cut Above storefront in Tooele, Utah" class="about-img" onerror="this.style.background='#f5efe6';this.style.minHeight='320px';this.alt='A Cut Above Storefront';">
+        <div class="about-badge">
+          <strong>✂</strong>
+          Tooele's<br>Local Gem
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <div class="divider"></div>
+        <h2 class="section-title">More Than a Haircut — It's Community</h2>
+        <p>A Cut Above is a locally owned barber shop and salon right here in Tooele, Utah. We're the kind of place where you walk in as a customer and leave as a friend. Whether it's your first visit or your hundredth, you'll always feel at home.</p>
+        <p>From precision fades and classic cuts to color services, manicures, and pedicures — our talented team does it all under one roof. No appointment? No problem. Walk-ins are always welcome.</p>
+        <div class="services-list">
+          <span class="service-pill">Color Specialists</span>
+          <span class="service-pill">Haircuts</span>
+          <span class="service-pill">Barbering</span>
+          <span class="service-pill">Manicures</span>
+          <span class="service-pill">Pedicures</span>
+          <span class="service-pill">Walk-Ins Welcome</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="section-inner">
+    <p class="section-label">The Crew</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-intro">Skilled, friendly, and genuinely passionate about making you look and feel your best. These are the people behind every great cut.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b5956a" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Your Stylist</div>
+          <div class="team-card-role">Color Specialist</div>
+          <p class="team-card-bio">A creative colorist with a passion for helping clients find their perfect look. From highlights to full transformations, no two appointments are the same.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b5956a" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Your Barber</div>
+          <div class="team-card-role">Master Barber</div>
+          <p class="team-card-bio">Precision fades, clean lines, and classic cuts — the kind of barber experience that keeps clients coming back week after week.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b5956a" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name">Your Nail Tech</div>
+          <div class="team-card-role">Nail Technician</div>
+          <p class="team-card-bio">Manicures, pedicures, and everything in between. Come in for a full relaxing treatment and leave with beautiful results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="section-inner">
+    <p class="section-label">Appointments</p>
+    <div class="divider" style="background:rgba(255,255,255,0.4);margin:0 auto 1rem;"></div>
+    <h2 class="section-title">Ready for a Fresh Look?</h2>
+    <p class="section-intro">Give us a call or stop on by. We'd love to see you.</p>
+    <div class="book-methods">
+      <div class="book-method">
+        <span class="book-method-icon">📞</span>
+        <div class="book-method-label">Call Us</div>
+        <div class="book-method-value"><a href="tel:4358820852">435-882-0852</a></div>
+      </div>
+      <div class="book-method">
+        <span class="book-method-icon">📘</span>
+        <div class="book-method-label">Message Us</div>
+        <div class="book-method-value"><a href="https://www.facebook.com/tooelesalonAcutabove/" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+      <div class="book-method">
+        <span class="book-method-icon">🚶</span>
+        <div class="book-method-label">Or Just</div>
+        <div class="book-method-value">Walk Right In</div>
+      </div>
+    </div>
+    <span class="walk-in-note">✂ Walk-ins always welcome — no appointment needed</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-inner">
+    <p class="section-label">What People Are Saying</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Tooele Loves A Cut Above</h2>
+    <p class="section-intro">Don't just take our word for it — hear from the neighbors who keep coming back.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I've been coming here for years and won't go anywhere else. The team always knows exactly what I want and the atmosphere feels like home. Best salon in Tooele, hands down."</p>
+        <div class="testimonial-author">— Happy Customer</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Brought my son in for his first real haircut and they were so patient and kind with him. We were in and out with smiles on our faces. This is our spot for the whole family now."</p>
+        <div class="testimonial-author">— Local Family</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Great barbering, friendly staff, fair prices. I walked in without an appointment and was taken care of right away. Exactly what you hope for in a small-town shop."</p>
+        <div class="testimonial-author">— Regular Customer</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.85rem;color:var(--gray);">
+      Leave us a review on <a href="https://www.facebook.com/tooelesalonAcutabove/" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">Facebook</a> &mdash; we love hearing from you!
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-label">Find Us</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Hours &amp; Location</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Come See Us</h3>
+
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value"><a href="tel:4358820852">435-882-0852</a></div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Address</div>
+            <div class="contact-detail-value">Tooele, Utah<br><small style="color:var(--gray);">Look for the bright red awning</small></div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">📘</div>
+          <div>
+            <div class="contact-detail-label">Facebook</div>
+            <div class="contact-detail-value"><a href="https://www.facebook.com/tooelesalonAcutabove/" target="_blank" rel="noopener">facebook.com/tooelesalonAcutabove</a></div>
+          </div>
+        </div>
+
+        <table class="hours-table" style="margin-top:1.5rem;">
+          <thead>
+            <tr><td colspan="2" style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--red);padding-bottom:0.75rem;">Hours of Operation</td></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday – Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr><td>Saturday</td><td>9:00 AM – 4:00 PM</td></tr>
+            <tr><td>Sunday</td><td class="closed-label">Closed</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1rem;font-size:0.8rem;color:var(--gray);font-style:italic;">Hours may vary — call ahead or check Facebook for updates.</p>
+      </div>
+
+      <div>
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24291.95!2d-112.2983!3d40.5308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87527b4e9fde9f5d%3A0x9e7e87c4b5f6d4e1!2sTooele%2C%20UT!5e0!3m2!1sen!2sus!4v1680000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="A Cut Above location in Tooele, Utah">
+          </iframe>
+        </div>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--gray);text-align:center;">
+          <a href="https://maps.google.com/?q=A+Cut+Above+Tooele+Utah" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">Get Directions &rarr;</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">A Cut Above</div>
+  <div class="footer-sub">Barber Shop &amp; Salon &mdash; Tooele, Utah</div>
+  <a href="https://www.facebook.com/tooelesalonAcutabove/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">f</a>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Hours</a></li>
+    <li><a href="tel:4358820852">435-882-0852</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 A Cut Above Barber Shop &amp; Salon. All rights reserved. Tooele, Utah.</div>
+</footer>
+
+</body>
+</html>
